@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                addBtn.setEnabled(s.equals(""));
+                addBtn.setEnabled(!s.equals(""));
             }
 
             @Override
