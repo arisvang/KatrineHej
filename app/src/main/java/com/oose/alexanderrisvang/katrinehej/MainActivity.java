@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TabHost;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -26,6 +27,24 @@ public class MainActivity extends ActionBarActivity {
         phoneTxt = (EditText) findViewById(R.id.txtPhone);
         emailTxt = (EditText) findViewById(R.id.txtEmail);
         addressTxt = (EditText) findViewById(R.id.txtAddress);
+
+
+        // tabHost configuration
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+
+        tabHost.setup();
+
+        TabHost.TabSpec tapSpec = tabHost.newTabSpec("creator");
+        tapSpec.setContent(R.id.CreatorTab);
+        tapSpec.setIndicator("creator");
+        tabHost.addTab(tapSpec);
+
+        tapSpec = tabHost.newTabSpec("list");
+        tapSpec.setContent(R.id.ContactListTab);
+        tapSpec.setIndicator("list");
+        tabHost.addTab(tapSpec);
+
+        // add contact button
         final Button addBtn = (Button) findViewById(R.id.btnAdd);
 
         nameTxt.addTextChangedListener(new TextWatcher() {
@@ -36,7 +55,8 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                addBtn.setEnabled(!s.equals(""));
+                // if Name text is empty; add button is disabled.
+                addBtn.setEnabled(!nameTxt.getText().toString().trim().isEmpty());
             }
 
             @Override
