@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         phoneTxt = (EditText) findViewById(R.id.txtPhone);
         emailTxt = (EditText) findViewById(R.id.txtEmail);
         addressTxt = (EditText) findViewById(R.id.txtAddress);
-        final Button addbtn = (Button) findViewById(R.id.btnAdd);
+        final Button addBtn = (Button) findViewById(R.id.btnAdd);
 
         nameTxt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                addbtn.setEnabled(s.equals(""));
+                addBtn.setEnabled(s.equals(""));
             }
 
             @Override
