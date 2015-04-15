@@ -4,16 +4,25 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    // declaring of needed variables in this case; EditText types.
+
+    EditText nameTxt,phoneTxt,emailTxt,addressTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Hej allesammen hva så?
-        // Har du det ok?
+
+        // Set the EditText variables
+        nameTxt = (EditText) findViewById(R.id.txtName);
+        phoneTxt = (EditText) findViewById(R.id.txtPhone);
+        emailTxt = (EditText) findViewById(R.id.txtEmail);
+        addressTxt = (EditText) findViewById(R.id.txtAddress);
     }
 
     @Override
